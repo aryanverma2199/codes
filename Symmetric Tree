@@ -1,0 +1,13 @@
+class Solution {
+public:
+    
+    
+    bool issymmhel(TreeNode*left,TreeNode*right){
+        if(left==nullptr||right==nullptr)return left==right;
+        if(left->val!=right->val)return false;
+        return issymmhel(left->left,right->right)&&issymmhel(left->right,right->left);
+    }
+    bool isSymmetric(TreeNode* root) {
+        return root==nullptr or issymmhel(root->left,root->right);
+    } 
+};
